@@ -23,7 +23,7 @@ Make sure your database is running and create a database called `fs-panda-pantry
 
 ## Required Features (Base Mode)
 
-The Panda Pantry needs web application to view and manage their list of available foods.  
+The Panda Pantry needs a web application to view and manage their list of available foods.  
 
 ### Inventory Component
 The current pantry items should be displayed on the page in a table. Combine the quantity & measure together (for display) in one column. For example if the quantity is '200' and the measure is 'lbs', display this together as '200 lbs'. 
