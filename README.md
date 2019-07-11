@@ -1,68 +1,75 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Panda Pantry
 
-## Available Scripts
+While wild pandas eat mainly bamboo, civilized pandas eat all sorts of fancy foods. With so many options, they need some help keeping track of it all. Panda Pantry to the rescue!
 
-In the project directory, you can run:
+## Setup & Starter code
 
-### `npm start`
+Checkout the starter code provided for you. There is a client side React starter application as well as server side code provided for you. Look through this to review what has been setup for you.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Run:
+```
+npm install
+npm run server
+```
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Then in a new, _separate terminal window_, run:
+```
+npm run client
+```
 
-### `npm test`
+### Database Setup
+Make sure your database is running and create a database called `fs-panda-pantry`. Run the provided `database.sql` file to setup the database table and populate some test data for the application. 
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Required Features (Base Mode)
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The Panda Pantry needs to store a list of foods. Create a database called `fs-panda-pantry` to track the food items.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Each food item *must* have:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Name - text, allow up to 80 characters
+1. Quantity - allow for decimal numbers
+1. Measure - text, allow up to 20 characters 
 
-### `npm run eject`
+The current pantry items should be displayed on the page in a table. Combine the quantity & measure together (for display) in one column. For example if the quantity is '200' and the measure is 'lbs', display this together as '200 lbs'. 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The Panda Pantry also needs to add & remove foods from the list. Add a form at the top of the page to add new items, and display each item with a delete button that will remove it from the database.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The quantity of items changes regularly, so to edit quickly they would like buttons to increase and decrease the quantity by 1.  
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Sample Wireframe
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![wireframe](panda-pantry-wireframe.png)
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Stretch Features 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Add a confirmation dialog to the delete button so that when the user clicks 'Delete' they are prompted to confirm whether they *really* want to delete the item or cancel the delete. 
 
-### Code Splitting
+- Add a note to the UI indicating that all fields are required.  On Save, validate that all inputs have a value. (You can do this by making the HTML inputs required.)  
+  - Optionally, make sure the text entered isn't too long.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+- Improve the styling of the page using Bootstrap & custom CSS
+  - Improve the table layout. Give alternating rows a difference in color.
+  - Make the buttons more UX friendly -- Red for delete, etc. Green for save.
+  - Add a trash can icon for the delete button.
+  - Make the page responsive -- Bootstrap Grid & Containers will be helpful!
 
-### Analyzing the Bundle Size
+### Enhanced Edit
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+Currently, if you typo something, it must be removed and re-added to fix it. An edit feature would be a great enhancement. 
 
-### Making a Progressive Web App
+The Panda Pantry users would like to be able to click an Edit button and have the existing data show in the input form at the top of the page to allow an easy edit. 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+To do this, first create a global variable to indicate if we are in add or edit mode. 
 
-### Advanced Configuration
+Then add an edit button to each item in the table. When clicked:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- Save the item id in a global variable
+- Switch the mode to edit
+- Fill the form with the current item's information
+- Change the heading from Add to Edit 
+- When the submit button is clicked:
+  - If the mode is add - do the original POST
+  - If the mode is edit - send a PUT with the updated information
+- Optionally, the edit mode also show a cancel button, which should switch back to add mode, clearing the inputs without saving data.
