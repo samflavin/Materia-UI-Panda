@@ -49,12 +49,6 @@ Add a form at the top of the page to allow the Panda Pantry staff to add new ite
 - Add a note to the UI indicating that all fields are required.  On Save, validate that all inputs have a value. (You can do this by making the HTML inputs required.)  
   - Optionally, make sure the text entered isn't too long.
 
-- Improve the styling of the page using Bootstrap & custom CSS
-  - Improve the table layout. Give alternating rows a difference in color.
-  - Make the buttons more UX friendly -- Red for delete, etc. Green for save.
-  - Add a trash can icon for the delete button.
-  - Make the page responsive -- Bootstrap Grid & Containers will be helpful!
-
 ### Enhanced Edit
 
 Currently, if you typo something, it must be removed and re-added to fix it. An edit feature would be a great enhancement. 
