@@ -1,4 +1,4 @@
-# Panda Pantry
+# FS React Panda Pantry
 
 While wild pandas eat mainly bamboo, civilized pandas eat all sorts of fancy foods. With so many options, they need some help keeping track of it all. Panda Pantry to the rescue!
 
@@ -23,19 +23,19 @@ Make sure your database is running and create a database called `fs-panda-pantry
 
 ## Required Features (Base Mode)
 
-The Panda Pantry needs to store a list of foods. Create a database called `fs-panda-pantry` to track the food items.
+The Panda Pantry needs web application to view and manage their list of available foods.  
 
-Each food item *must* have:
-
-1. Name - text, allow up to 80 characters
-1. Quantity - allow for decimal numbers
-1. Measure - text, allow up to 20 characters 
-
+### Inventory Component
 The current pantry items should be displayed on the page in a table. Combine the quantity & measure together (for display) in one column. For example if the quantity is '200' and the measure is 'lbs', display this together as '200 lbs'. 
 
-The Panda Pantry also needs to add & remove foods from the list. Add a form at the top of the page to add new items, and display each item with a delete button that will remove it from the database.
+The Panda Pantry also needs to be able to remove foods from the list. Add a delete button to each item in the table allowing it to be removed from the database.
 
 The quantity of items changes regularly, so to edit quickly they would like buttons to increase and decrease the quantity by 1.  
+
+### Item Form Component
+
+Add a form at the top of the page to allow the Panda Pantry staff to add new items to the database. Each new item *MUST* have a name, quantity, and measure.
+
 
 ### Sample Wireframe
 
@@ -61,11 +61,11 @@ Currently, if you typo something, it must be removed and re-added to fix it. An 
 
 The Panda Pantry users would like to be able to click an Edit button and have the existing data show in the input form at the top of the page to allow an easy edit. 
 
-To do this, first create a global variable to indicate if we are in add or edit mode. 
+To do this update the Item Form Component to support and edit mode. Add a variable to the component `state` to indicate if we are in add or edit mode. 
 
 Then add an edit button to each item in the table. When clicked:
 
-- Save the item id in a global variable
+- Save the item id in component `state`
 - Switch the mode to edit
 - Fill the form with the current item's information
 - Change the heading from Add to Edit 
