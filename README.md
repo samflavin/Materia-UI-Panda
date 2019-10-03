@@ -2,10 +2,6 @@
 
 While wild pandas eat mainly bamboo, civilized pandas eat all sorts of fancy foods. With so many options, they need some help keeping track of it all. Panda Pantry to the rescue!
 
-## Setup & Starter code
-
-Checkout the starter code provided for you. There is a client side React starter application as well as server side code provided for you. Look through this to review what has been setup for you.
-
 Run:
 ```
 npm install
