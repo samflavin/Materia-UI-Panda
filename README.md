@@ -7,13 +7,8 @@ Run:
 npm install
 npm run server
 ```
-
 Then in a new, _separate terminal window_, run:
 ```
 npm run client
 ```
-
-### Database Setup
-Make sure your database is running and create a database called `fs-panda-pantry`. Run the provided `database.sql` file to setup the database table and populate some test data for the application. 
-
 
